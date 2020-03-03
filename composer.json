@@ -8,7 +8,9 @@
             "email": "xiegangd@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
     "autoload": {
         "psr-4": {
             "Xiegangd\\Weather\\": "src"
