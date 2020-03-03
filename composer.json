@@ -1,0 +1,17 @@
+{
+    "name": "xiegangd\/weather",
+    "description": "A weather SDK.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xiegangd",
+            "email": "xiegangd@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Xiegangd\\Weather\\": "src"
+        }
+    }
+}
