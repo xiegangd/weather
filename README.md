@@ -200,7 +200,7 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit(Weather $weather) 
+    public function show(Weather $weather) 
     {
         $response = $weather->getLiveWeather('深圳');
     }
@@ -215,7 +215,7 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit() 
+    public function show() 
     {
         $response = app('weather')->getLiveWeather('深圳');
     }
