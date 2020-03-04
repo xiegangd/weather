@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the xiegangd/weather.
+ *
+ * (c) xiegangd <xiegangd@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Xiegangd\Weather;
 
 use GuzzleHttp\Client;
@@ -9,10 +18,12 @@ use Xiegangd\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key;
+
     protected $guzzleOptions = [];
 
     /**
      * Weather constructor.
+     *
      * @param $key
      */
     public function __construct($key)
@@ -36,7 +47,7 @@ class Weather
 
         // 1. 对 `$format` 与 `$type` 参数进行检查，不在范围内的抛出异常。
         if (!\in_array($format, ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: '. $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
@@ -60,7 +71,7 @@ class Weather
 
             // 4. 返回值根据 $format 返回不同的格式，
             // 当 $format 为 json 时，返回数组格式，否则为 xml。
-            return $format === 'json' ? \json_decode($response, true) : $response;
+            return 'json' === $format ? \json_decode($response, true) : $response;
         } catch (\Exception $e) {
             // 5. 当调用出现异常时捕获并抛出，消息为捕获到的异常消息，
             // 并将调用异常作为 $previousException 传入。
@@ -77,5 +88,4 @@ class Weather
     {
         return $this->getWeather($city, 'all', $format);
     }
-
 }
