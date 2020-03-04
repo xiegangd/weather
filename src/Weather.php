@@ -46,11 +46,11 @@ class Weather
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
         // 1. 对 `$format` 与 `$type` 参数进行检查，不在范围内的抛出异常。
         if (!\in_array($format, ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         // 2. 封装 query 参数，并对空值进行过滤。
